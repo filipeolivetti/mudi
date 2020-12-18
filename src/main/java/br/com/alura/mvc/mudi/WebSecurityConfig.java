@@ -24,9 +24,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			//.antMatchers("/", "/home").permitAll()
 			.anyRequest().authenticated()
 			.and()
-			.formLogin(form -> form.loginPage("/login").permitAll());
+			.formLogin(form -> form.loginPage("/login").permitAll()
+		)
+		.logout(logout -> logout.logoutUrl("/logout"));
 		
 	}
+	
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
